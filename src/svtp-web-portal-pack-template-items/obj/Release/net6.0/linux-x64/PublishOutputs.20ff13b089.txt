@@ -1,9 +1,0 @@
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\svtp-web-portal-pack-template-items.deps.json
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\svtp-web-portal-pack-template-items.runtimeconfig.json
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\svtp-web-portal-pack-template-items.pdb
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\Amazon.Lambda.Core.dll
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\AWSSDK.Core.dll
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\AWSSDK.S3.dll
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\Newtonsoft.Json.dll
-C:\Github\svtp-web-portal-pack-template-items\src\svtp-web-portal-pack-template-items\bin\Release\net6.0\publish\svtp-web-portal-pack-template-items.dll
