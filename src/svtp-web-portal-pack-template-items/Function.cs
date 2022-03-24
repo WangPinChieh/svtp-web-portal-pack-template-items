@@ -39,7 +39,7 @@ public class Function
     {
         using (var sqlConnection =
                new SqlConnection(
-                   "Data source=svtp-webportal-test.cney0g9jmfvf.us-west-2.rds.amazonaws.com; initial Catalog=SVTP;User ID=SA;Password=Passw0rd;MultipleActiveResultSets=True;"))
+                   ""))
         {
             await sqlConnection.OpenAsync();
             try
