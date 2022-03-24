@@ -20,7 +20,7 @@ public class Function
     /// <param name="input"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task<string> FunctionHandler(Parameter parameter, ILambdaContext context)
+    public async Task FunctionHandler(Parameter parameter, ILambdaContext context)
     {
         var files = await GetS3Files(parameter);
         if (files.Length == 0)
@@ -29,34 +29,38 @@ public class Function
         }
 
         var zipFileStream = await Archive(files);
+        
         var preSignedUrl = await UploadZipFile(parameter, zipFileStream);
 
+        await UpdateUrlToDb(preSignedUrl, parameter.ZipFileRetrievalKey);
+    }
+
+    private async Task UpdateUrlToDb(string preSignedUrl, string fileRetrievalKey)
+    {
         using (var sqlConnection =
-               new SqlConnection( ""))
+               new SqlConnection(
+                   "Data source=svtp-webportal-test.cney0g9jmfvf.us-west-2.rds.amazonaws.com; initial Catalog=SVTP;User ID=SA;Password=Passw0rd;MultipleActiveResultSets=True;"))
         {
-           await sqlConnection.OpenAsync();
-           try
-           {
-               using (var command =
-                      new SqlCommand(
-                          $"UPDATE tblZipFile SET Status = 1, Url = '{preSignedUrl}', UpdatedAt = GETDATE() WHERE Id='{parameter.ZipFileRetrievalKey}'",
-                          sqlConnection))
-               {
-                   await command.ExecuteNonQueryAsync();
-               }
-           }
-           catch (Exception exp)
-           {
-               throw new Exception("Update database failed.", exp);
-           }
-           finally
-           {
-               await sqlConnection.CloseAsync();
-           }
+            await sqlConnection.OpenAsync();
+            try
+            {
+                using (var command =
+                       new SqlCommand(
+                           $"UPDATE tblZipFile SET Status = 1, Url = '{preSignedUrl}', UpdatedAt = GETDATE() WHERE Id='{fileRetrievalKey}'",
+                           sqlConnection))
+                {
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception exp)
+            {
+                throw new Exception("Update database failed.", exp);
+            }
+            finally
+            {
+                await sqlConnection.CloseAsync();
+            }
         }
-
-
-        return preSignedUrl;
     }
 
     private async Task<string> UploadZipFile(Parameter parameter, MemoryStream zipFileStream)
