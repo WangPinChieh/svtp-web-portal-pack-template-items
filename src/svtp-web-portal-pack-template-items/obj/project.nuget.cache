@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qAOVOtluVjUXX1sgsBkQH7t2AbBPwGZJjB9NYwHzZp62iceq5KCJBKVTJc+nlybfydtZ77K3pIRJ/7UPyNr2ew==",
+  "dgSpecHash": "fxD6cITHNAofiLyM2suvvMBwCs+V0LWclAQxxNmhdQc3Afox6Rvfs9+aUMT+g4XEBF6u/4INC8n53REhcsKdbA==",
   "success": true,
   "projectFilePath": "C:\\Github\\svtp-web-portal-pack-template-items\\src\\svtp-web-portal-pack-template-items\\svtp-web-portal-pack-template-items.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\WangJay\\.nuget\\packages\\awssdk.core\\3.7.9\\awssdk.core.3.7.9.nupkg.sha512",
     "C:\\Users\\WangJay\\.nuget\\packages\\awssdk.s3\\3.7.8.10\\awssdk.s3.3.7.8.10.nupkg.sha512",
     "C:\\Users\\WangJay\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\WangJay\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.0\\microsoft.netcore.app.runtime.linux-x64.6.0.0.nupkg.sha512",
+    "C:\\Users\\WangJay\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.0\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.0.nupkg.sha512",
     "C:\\Users\\WangJay\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.0\\microsoft.netcore.app.crossgen2.win-x64.6.0.0.nupkg.sha512"
   ],
   "logs": []
