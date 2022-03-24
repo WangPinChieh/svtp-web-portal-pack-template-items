@@ -1,3 +1,4 @@
+using System.Data.SqlClient;
 using System.IO.Compression;
 using Amazon;
 using Amazon.Lambda.Core;
@@ -29,6 +30,32 @@ public class Function
 
         var zipFileStream = await Archive(files);
         var preSignedUrl = await UploadZipFile(parameter, zipFileStream);
+
+        using (var sqlConnection =
+               new SqlConnection( ""))
+        {
+           await sqlConnection.OpenAsync();
+           try
+           {
+               using (var command =
+                      new SqlCommand(
+                          $"UPDATE tblZipFile SET Status = 1, Url = '{preSignedUrl}', UpdatedAt = GETDATE() WHERE Id='{parameter.ZipFileRetrievalKey}'",
+                          sqlConnection))
+               {
+                   await command.ExecuteNonQueryAsync();
+               }
+           }
+           catch (Exception exp)
+           {
+               throw new Exception("Update database failed.", exp);
+           }
+           finally
+           {
+               await sqlConnection.CloseAsync();
+           }
+        }
+
+
         return preSignedUrl;
     }
 
